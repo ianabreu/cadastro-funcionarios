@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: var(--max-width);
+  min-height: calc(95vh - var(--header-height));
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+.area,
+.areaPDF {
+  display: flex;
+  flex: 1;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+}
+.area {
+  max-width: 650px;
+  min-width: 320px;
+}
+.areaPDF {
+  height: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.fildset {
+  border: 2px solid var(--blue-500);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+.legend {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 0.5rem;
+  padding: 0 0.5rem;
+}
+.flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  flex: 1;
+}
+.flexCol {
+  flex-direction: column;
+}
+.flexOne {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+@media screen and (max-width: 380px) {
+  .flex {
+    flex-direction: column;
+  }
+  .legend {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .area,
+  .areaPDF {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  .legend {
+    font-size: 1rem;
+  }
+}

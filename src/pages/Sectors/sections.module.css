@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-width);
+  min-height: calc(95vh - var(--header-height));
+  margin: 0 auto;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.title h1 {
+  font-size: 2rem;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.area {
+  flex: 1 1 auto;
+}
+.area h5 {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.area form {
+  display: flex;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--gray-900);
+  border-radius: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .title h1 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .title h1 {
+    font-size: 1rem;
+  }
+}

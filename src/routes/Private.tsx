@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../contexts/auth";
+import EmployeProvider from "../contexts/employee";
+import Header from "../components/Header";
 
 interface PrivateProps {
   children: JSX.Element;
@@ -16,5 +18,10 @@ export default function Private({ children }: PrivateProps): JSX.Element {
     return <Navigate to="/" />;
   }
 
-  return children;
+  return (
+    <>
+      <Header />
+      <EmployeProvider>{children}</EmployeProvider>;
+    </>
+  );
 }

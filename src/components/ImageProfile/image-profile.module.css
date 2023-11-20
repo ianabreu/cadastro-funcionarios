@@ -1,0 +1,23 @@
+.imageArea {
+  max-width: 135px;
+  max-height: 180px;
+  width: 100%;
+  border-radius: 0.5rem;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border: 1px solid var(--gray-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+.imageArea img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small {
+  max-width: 112.5px;
+  max-height: 150px;
+}

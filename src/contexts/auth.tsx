@@ -69,7 +69,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         storageUser({ uid, email });
         setLoadingAuth(false);
         toast.success("Bem-vindo(a) de volta!");
-        navigate("/dashboard");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -88,10 +88,9 @@ function AuthProvider({ children }: AuthProviderProps) {
         storageUser({ email, uid });
         setLoadingAuth(false);
         toast.success("Seja bem-vindo ao sistema!");
-        navigate("/dashboard");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         setLoadingAuth(false);
         toast.error("Erro ao cadastrar");
       });
@@ -105,6 +104,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     await signOut(auth);
     localStorage.removeItem("@taugor");
     setUser(null);
+    navigate("/", { replace: true });
   }
 
   return (

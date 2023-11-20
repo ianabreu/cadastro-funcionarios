@@ -1,0 +1,15 @@
+.infoContent {
+  display: flex;
+  flex-direction: column;
+}
+.infoContent label {
+  font-weight: 700;
+  padding: 0.25rem;
+}
+.infoContent span {
+  background-color: var(--gray-900);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--gray-100);
+  line-height: 150%;
+}

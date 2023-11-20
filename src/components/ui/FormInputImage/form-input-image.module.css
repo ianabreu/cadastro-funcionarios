@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.perfil {
+  max-width: 135px;
+  max-height: 180px;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--gray-500);
+  aspect-ratio: 3/4;
+}
+.perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
