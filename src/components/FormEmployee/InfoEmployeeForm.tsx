@@ -18,7 +18,7 @@ interface FormEmployeeProps {
 }
 
 export function InfoEmployeeForm({ data }: FormEmployeeProps) {
-  const { sectors, roles } = useContext(EmployeeContext);
+  const { sectors, roles, setStatus } = useContext(EmployeeContext);
   const { addHistory } = useContext(HistoryContext);
 
   async function updateEmployeePromotion(
@@ -56,7 +56,7 @@ export function InfoEmployeeForm({ data }: FormEmployeeProps) {
     } catch (error) {
       console.log(error);
     }
-
+    setStatus("ACTIVE");
     navigate("/", { replace: true });
   }
 

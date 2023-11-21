@@ -17,12 +17,14 @@ import { doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { useContext } from "react";
 import { HistoryContext } from "../../contexts/history";
+import { EmployeeContext } from "../../contexts/employee";
 export interface FormStatusProps {
   status: StatusProps;
   id: string | undefined;
 }
 
 export function InfoStatusForm({ status, id }: FormStatusProps) {
+  const { setStatus } = useContext(EmployeeContext);
   const { addHistory } = useContext(HistoryContext);
   const navigate = useNavigate();
   const { control, handleSubmit } = useForm({
@@ -56,7 +58,7 @@ export function InfoStatusForm({ status, id }: FormStatusProps) {
     } catch (error) {
       console.log(error);
     }
-
+    setStatus("ACTIVE");
     navigate("/", { replace: true });
   }
   return (

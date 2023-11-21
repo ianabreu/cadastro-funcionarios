@@ -14,12 +14,14 @@ import { useContext } from "react";
 import { HistoryContext } from "../../contexts/history";
 import { doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
+import { EmployeeContext } from "../../contexts/employee";
 interface FormEmployeeProps {
   data: InfoContactProps;
 }
 
 export function InfoContactForm({ data }: FormEmployeeProps) {
   const { addHistory } = useContext(HistoryContext);
+  const { setStatus } = useContext(EmployeeContext);
 
   async function updateContact(
     prevValue: InfoContactProps,
@@ -57,7 +59,7 @@ export function InfoContactForm({ data }: FormEmployeeProps) {
     } catch (error) {
       console.log(error);
     }
-
+    setStatus("ACTIVE");
     navigate("/", { replace: true });
   }
 

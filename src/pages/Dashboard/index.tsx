@@ -54,14 +54,18 @@ export default function Dashboard() {
         </div>
         <Button
           variant="contained"
-          size="large"
+          size="small"
           onClick={() => navigate("/funcionario")}
         >
           Novo Funcionário
         </Button>
       </div>
       <div className={styles.content}>
-        <CardList employees={employees} isLoading={loadingEmployee} />
+        <CardList
+          employees={employees}
+          isLoading={loadingEmployee}
+          status={status}
+        />
       </div>
     </main>
   );
