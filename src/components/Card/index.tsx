@@ -18,7 +18,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
   const data: EmployeePDFProps = {
     ...employee,
     id: employee.id,
-    status: STATUS[employee.status],
+    status: STATUS[employee.status as keyof typeof STATUS],
   };
   function goToDetails(id: string | undefined) {
     if (id === undefined) {
@@ -51,7 +51,7 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
       <div className={styles.buttonArea}>
         <PDFDownloadLink
           document={<DownloadPDF data={data} />}
-          fileName="teste.pdf"
+          fileName={`download-${data.firstName}.pdf`}
           style={{ width: "100%" }}
         >
           <Button
