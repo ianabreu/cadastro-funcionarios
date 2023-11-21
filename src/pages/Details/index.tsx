@@ -117,7 +117,7 @@ export default function Details() {
                 onClick={() => openEdit("contact")}
                 startIcon={<Edit />}
               >
-                Editar Contato
+                Editar Informacões de Contato
               </Button>
             </div>
           </div>
