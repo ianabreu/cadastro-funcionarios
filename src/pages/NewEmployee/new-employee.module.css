@@ -60,6 +60,12 @@
   flex: 1;
   width: 100%;
 }
+.buttonArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
 @media screen and (max-width: 380px) {
   .flex {
     flex-direction: column;

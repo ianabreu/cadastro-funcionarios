@@ -3,7 +3,7 @@ import { Document, Font, Page, Text, View } from "@react-pdf/renderer";
 import { styles } from "./pdfStyles";
 
 export interface EmployeePDFProps {
-  id: string | undefined;
+  id?: string | undefined;
   firstName: string;
   lastName: string;
   gender: string;
@@ -15,7 +15,7 @@ export interface EmployeePDFProps {
   sector: string;
   wage: string;
   status: string;
-  profileURL: string;
+  profileURL?: string;
 }
 
 interface PDFEmployeeProps {

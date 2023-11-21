@@ -15,6 +15,9 @@ import { PDFEmployee } from "../../components/PDFEmployee";
 import { toast } from "react-toastify";
 import { FormInputTextMask } from "../../components/ui/FormInputTextMask";
 import { GENDER_OPTIONS } from "../../@types/employee";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PictureAsPdfOutlined } from "@mui/icons-material";
+import { isMobile } from "react-device-detect";
 
 export default function NewEmployee() {
   const { addEmployee, loadingEmployee, sectors, roles } =
@@ -139,6 +142,7 @@ export default function NewEmployee() {
                     mask="currency"
                     name="wage"
                     type="text"
+                    inputProps={{ inputMode: "numeric" }}
                     control={control}
                     label={"Salário"}
                     helper="ex. R$ 2.000,00"
@@ -166,24 +170,55 @@ export default function NewEmployee() {
               </div>
             </div>
           </fieldset>
-
-          <Button
-            color="primary"
-            variant="contained"
-            fullWidth
-            type="submit"
-            disabled={loadingEmployee}
-          >
-            Cadastrar
-          </Button>
+          <div className={styles.buttonArea}>
+            {isMobile && (
+              <PDFDownloadLink
+                document={
+                  <PDFEmployee
+                    data={data}
+                    imageUrl={file !== null && URL.createObjectURL(file)}
+                  />
+                }
+                style={{ width: "100%" }}
+                fileName="download.pdf"
+              >
+                {({ loading }) => (
+                  <Button
+                    variant="contained"
+                    size="small"
+                    color="warning"
+                    endIcon={<PictureAsPdfOutlined />}
+                    fullWidth
+                    disabled={loading}
+                  >
+                    {loading ? "Gerando o PDF" : "Baixe o PDF"}
+                  </Button>
+                )}
+              </PDFDownloadLink>
+            )}
+            <Button
+              color="primary"
+              variant="contained"
+              fullWidth
+              type="submit"
+              size="small"
+              disabled={loadingEmployee}
+            >
+              Cadastrar
+            </Button>
+          </div>
         </form>
       </div>
-      <div className={styles.areaPDF}>
-        <PDFEmployee
-          data={data}
-          imageUrl={file !== null && URL.createObjectURL(file)}
-        />
-      </div>
+      {!isMobile && (
+        <div className={styles.areaPDF}>
+          <PDFViewer width={"100%"} height={685}>
+            <PDFEmployee
+              data={data}
+              imageUrl={file !== null && URL.createObjectURL(file)}
+            />
+          </PDFViewer>
+        </div>
+      )}
     </main>
   );
 }
